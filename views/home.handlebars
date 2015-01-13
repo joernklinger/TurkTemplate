@@ -1,0 +1,61 @@
+{{testText}}
+
+
+
+<script>
+
+function getParamFromURL(name) {
+    name = name.replace(/[\[]/,"\\[").replace(/[\]]/,"\\]");
+    var regexS = "[\?&]"+name+"=([^&#]*)";
+    var regex = new RegExp( regexS );
+    var results = regex.exec( window.location.href );
+    if( results == null )
+      return "";
+    else
+      return results[1];
+}
+
+
+gotMoreInfo = 0;
+
+// get Turk info
+var usernameFromParamString = getParamFromURL('workerId');
+var assignmentIdFromParamString = getParamFromURL('assignmentId');
+var hitIdFromParamString = getParamFromURL('hitId');
+
+var usernameFromParamString = 'DefwWrkerId';
+var assignmentIdFromParamString = 'DefAssignmentId';
+var hitIdFromParamString = 'DefHitId';
+
+function moreInfo() {
+    gotMoreInfo = 1;
+    var url = 'https://twitter.com/{{name}}';
+    var win = window.open(url);
+    win.focus();
+}
+
+test = '{{name}}';
+AnnotatorName = 'default_anno';
+
+function buttonSubmit(oneOrzero) {
+    console.log(oneOrzero);
+    //AnnotatorName = document.getElementById("AnnotatorNameHidden").value;
+    AnnotatorName = 'default_anno';
+    ConfidenceRating = document.getElementById('slider1').value;
+    $.post('/annotate',
+    {
+      data: [oneOrzero, gotMoreInfo, ConfidenceRating, , usernameFromParamString, assignmentIdFromParamString, hitIdFromParamString],
+    },
+    function(data, status) {
+    });
+    window.location = 'http://localhost:3000';
+}
+
+function SliderTest() {
+    ConfidenceRating = document.getElementById('slider1').value;
+    //console.log(ConfidenceRating);
+
+}
+
+
+</script>

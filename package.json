@@ -1,0 +1,13 @@
+{
+  "name": "TurkTest",
+  "version": "0.0.0",
+  "description": "Test for Mechanical Turk",
+  "main": "TurkTest.js",
+  "author": "Joern Klinger",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "express": "~4.10.8",
+    "express-handlebars": "~1.1.0",
+    "body-parser": "~1.10.1"
+  }
+}
