@@ -79,7 +79,21 @@ function renderOutro(res, req) {
 }
 
 // Start server
+/*
 var server = app.listen(app.get('port'), function() {
     console.log('Express started on locahost:' +
     app.get('port') + '; press Ctrl-C to terminate.');
 });
+*/
+
+var https = require('https');
+var fs = require('fs');
+var options = {
+   key: fs.readFileSync('_.ling.utexas.edu.key'),
+   cert: fs.readFileSync('_.ling.utexas.edu.crt')
+};
+ 
+// var httpServer = http.createServer(app);
+var httpsServer = https.createServer(options, app);
+
+httpsServer.listen(80);

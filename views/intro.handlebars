@@ -16,6 +16,7 @@ function getParamFromURL(name) {
       return results[1];
 }
 
+/*
 // get Turk info
 var usernameFromParamString = getParamFromURL('workerId');
 var assignmentIdFromParamString = getParamFromURL('assignmentId');
@@ -24,8 +25,8 @@ var hitIdFromParamString = getParamFromURL('hitId');
 var usernameFromParamString = 'DefwWrkerId';
 var assignmentIdFromParamString = 'DefAssignmentId';
 var hitIdFromParamString = 'DefHitId';
-
-var workerId = {{worker}};
+*/
+var workerId = '{{worker}}';
 
 // Button Submit Post
 function buttonSubmit(oneOrzero) {
@@ -38,7 +39,7 @@ function buttonSubmit(oneOrzero) {
     },
     function(data, status) {
     });
-    window.location = 'http://localhost:3000?workerId={{worker}}';
+    window.location = 'https://psych.ling.utexas.edu:80?workerId={{worker}}';
 }
 
 
